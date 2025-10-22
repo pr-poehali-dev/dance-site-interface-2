@@ -2,72 +2,73 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import Icon from '@/components/ui/icon';
 
 const Directions = () => {
   const directions = [
     {
       name: 'Hip-Hop',
-      icon: '🎤',
+      icon: 'Zap',
       description: 'Энергичный уличный стиль с элементами freestyle и грува',
       levels: ['Начинающие', 'Средний', 'Продвинутый'],
       schedule: 'ПН, СР, ПТ 18:00-19:30',
-      image: 'https://cdn.poehali.dev/projects/7d32826a-7447-47db-a8d1-4f6ae4afd4b4/files/1a4f98d3-68cb-46f9-8e62-8d8d7c846331.jpg',
+      image: 'https://cdn.poehali.dev/projects/7d32826a-7447-47db-a8d1-4f6ae4afd4b4/files/2cfb26a9-607e-4325-b918-4300fceae5cd.jpg',
     },
     {
       name: 'Contemporary',
-      icon: '💃',
+      icon: 'Heart',
       description: 'Современный танец, сочетающий технику и эмоциональную выразительность',
       levels: ['Начинающие', 'Средний', 'Продвинутый'],
       schedule: 'ВТ, ЧТ 19:00-20:30',
-      image: 'https://cdn.poehali.dev/projects/7d32826a-7447-47db-a8d1-4f6ae4afd4b4/files/bbff90ed-8d45-4522-974b-92638a3b9b32.jpg',
-    },
-    {
-      name: 'Классическая хореография',
-      icon: '🩰',
-      description: 'Основа всех танцевальных стилей, развитие пластики и грации',
-      levels: ['Начинающие', 'Средний', 'Продвинутый'],
-      schedule: 'ПН, СР, ПТ 17:00-18:30',
-      image: 'https://cdn.poehali.dev/projects/7d32826a-7447-47db-a8d1-4f6ae4afd4b4/files/bbff90ed-8d45-4522-974b-92638a3b9b32.jpg',
-    },
-    {
-      name: 'Латина',
-      icon: '🔥',
-      description: 'Страстные латиноамериканские танцы: сальса, бачата, меренге',
-      levels: ['Начинающие', 'Средний'],
-      schedule: 'ВТ, ЧТ 18:00-19:30',
-      image: 'https://cdn.poehali.dev/projects/7d32826a-7447-47db-a8d1-4f6ae4afd4b4/files/f12674f1-201a-45d4-a686-f4ff95fd8741.jpg',
-    },
-    {
-      name: 'K-Pop',
-      icon: '⭐',
-      description: 'Хореография в стиле корейских айдолов с синхронными движениями',
-      levels: ['Начинающие', 'Средний'],
-      schedule: 'СР, ПТ 19:30-21:00',
-      image: 'https://cdn.poehali.dev/projects/7d32826a-7447-47db-a8d1-4f6ae4afd4b4/files/1a4f98d3-68cb-46f9-8e62-8d8d7c846331.jpg',
+      image: 'https://cdn.poehali.dev/projects/7d32826a-7447-47db-a8d1-4f6ae4afd4b4/files/9aab3570-8774-4f4b-8594-0f61254eef15.jpg',
     },
     {
       name: 'Брейк-данс',
-      icon: '🌀',
+      icon: 'Flame',
       description: 'Акробатический стиль с элементами силовых и вращательных трюков',
       levels: ['Средний', 'Продвинутый'],
       schedule: 'ВТ, ЧТ, СБ 20:00-21:30',
-      image: 'https://cdn.poehali.dev/projects/7d32826a-7447-47db-a8d1-4f6ae4afd4b4/files/1a4f98d3-68cb-46f9-8e62-8d8d7c846331.jpg',
+      image: 'https://cdn.poehali.dev/projects/7d32826a-7447-47db-a8d1-4f6ae4afd4b4/files/2cfb26a9-607e-4325-b918-4300fceae5cd.jpg',
     },
     {
-      name: 'Джаз-фанк',
-      icon: '✨',
+      name: 'Jazz-Funk',
+      icon: 'Sparkles',
       description: 'Стильные комбинации под современную музыку с элементами джаза',
       levels: ['Начинающие', 'Средний'],
       schedule: 'ПН, СР 19:30-21:00',
-      image: 'https://cdn.poehali.dev/projects/7d32826a-7447-47db-a8d1-4f6ae4afd4b4/files/f12674f1-201a-45d4-a686-f4ff95fd8741.jpg',
+      image: 'https://cdn.poehali.dev/projects/7d32826a-7447-47db-a8d1-4f6ae4afd4b4/files/3ea578d4-fb53-4261-8dbe-98d407d0346c.jpg',
     },
     {
-      name: 'Детская хореография',
-      icon: '🎨',
-      description: 'Развитие координации, ритма и творческих способностей для детей 4-10 лет',
-      levels: ['4-6 лет', '7-10 лет'],
-      schedule: 'СБ, ВС 11:00-12:00',
-      image: 'https://cdn.poehali.dev/projects/7d32826a-7447-47db-a8d1-4f6ae4afd4b4/files/bbff90ed-8d45-4522-974b-92638a3b9b32.jpg',
+      name: 'Dancehall',
+      icon: 'Music',
+      description: 'Ямайские ритмы, энергия и драйв в каждом движении',
+      levels: ['Начинающие', 'Средний'],
+      schedule: 'СР, ПТ 19:30-21:00',
+      image: 'https://cdn.poehali.dev/projects/7d32826a-7447-47db-a8d1-4f6ae4afd4b4/files/3ea578d4-fb53-4261-8dbe-98d407d0346c.jpg',
+    },
+    {
+      name: 'Vogue',
+      icon: 'Star',
+      description: 'Модельная пластика, самовыражение и уникальный стиль',
+      levels: ['Все уровни'],
+      schedule: 'ВТ, ЧТ 18:00-19:30',
+      image: 'https://cdn.poehali.dev/projects/7d32826a-7447-47db-a8d1-4f6ae4afd4b4/files/9aab3570-8774-4f4b-8594-0f61254eef15.jpg',
+    },
+    {
+      name: 'Латина',
+      icon: 'Flame',
+      description: 'Страстные латиноамериканские танцы: сальса, бачата, меренге',
+      levels: ['Начинающие', 'Средний'],
+      schedule: 'ПН, ЧТ 18:00-19:30',
+      image: 'https://cdn.poehali.dev/projects/7d32826a-7447-47db-a8d1-4f6ae4afd4b4/files/3ea578d4-fb53-4261-8dbe-98d407d0346c.jpg',
+    },
+    {
+      name: 'K-Pop',
+      icon: 'Star',
+      description: 'Хореография в стиле корейских айдолов с синхронными движениями',
+      levels: ['Начинающие', 'Средний'],
+      schedule: 'СР, ПТ 20:00-21:30',
+      image: 'https://cdn.poehali.dev/projects/7d32826a-7447-47db-a8d1-4f6ae4afd4b4/files/2cfb26a9-607e-4325-b918-4300fceae5cd.jpg',
     },
   ];
 
@@ -94,7 +95,9 @@ const Directions = () => {
                   style={{ backgroundImage: `url(${direction.image})` }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
-                    <div className="text-5xl">{direction.icon}</div>
+                    <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
+                      <Icon name={direction.icon} size={24} className="text-primary" />
+                    </div>
                   </div>
                 </div>
                 <CardContent className="p-6">
@@ -122,7 +125,9 @@ const Directions = () => {
                     </div>
                   </div>
 
-                  <Button className="w-full">Записаться на занятие</Button>
+                  <Button className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90">
+                    Записаться на занятие
+                  </Button>
                 </CardContent>
               </Card>
             ))}
@@ -136,7 +141,7 @@ const Directions = () => {
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Запишитесь на бесплатную консультацию, и наши преподаватели помогут подобрать оптимальный стиль танца под ваши цели и предпочтения.
           </p>
-          <Button size="lg" className="text-lg px-10">
+          <Button size="lg" className="text-lg px-10 bg-gradient-to-r from-primary to-secondary hover:opacity-90">
             Получить консультацию
           </Button>
         </div>

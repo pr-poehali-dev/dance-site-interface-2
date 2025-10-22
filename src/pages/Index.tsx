@@ -9,6 +9,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import Icon from '@/components/ui/icon';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   const danceStyles = [
@@ -115,12 +116,16 @@ const Index = () => {
             Раскройте свой потенциал в современной школе танцев с 15+ направлениями для всех уровней
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in">
-            <Button size="lg" className="bg-white text-primary hover:bg-gray-100 text-lg px-8 py-6 shadow-xl">
-              Записаться на пробное
-            </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-6 shadow-xl">
-              Смотреть направления
-            </Button>
+            <Link to="/contacts">
+              <Button size="lg" className="bg-white text-primary hover:bg-gray-100 text-lg px-8 py-6 shadow-xl">
+                Записаться на пробное
+              </Button>
+            </Link>
+            <Link to="/directions">
+              <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-6 shadow-xl">
+                Смотреть направления
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -180,24 +185,85 @@ const Index = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg px-8 py-6">
-              Посмотреть все направления
-            </Button>
+            <Link to="/directions">
+              <Button size="lg" className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg px-8 py-6">
+                Посмотреть все направления
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl p-8 md:p-12 text-center">
-            <Icon name="Gift" size={64} className="text-primary mx-auto mb-6" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Специальное предложение!</h2>
-            <p className="text-xl text-muted-foreground mb-6">
+      <section className="relative py-20 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: 'url(https://cdn.poehali.dev/projects/7d32826a-7447-47db-a8d1-4f6ae4afd4b4/files/2cfb26a9-607e-4325-b918-4300fceae5cd.jpg)' }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-secondary/85 to-accent/90"></div>
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl mx-auto text-center text-white">
+            <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-6 animate-bounce">
+              <Icon name="Gift" size={48} className="text-primary" />
+            </div>
+            <h2 className="text-3xl md:text-5xl font-extrabold mb-4 drop-shadow-lg">Специальное предложение!</h2>
+            <p className="text-xl md:text-2xl mb-8 drop-shadow">
               Первое пробное занятие — бесплатно! Приходите и почувствуйте энергию танца.
             </p>
-            <Button size="lg" className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg px-8 py-6">
-              Забронировать занятие
-            </Button>
+            <Link to="/contacts">
+              <Button size="lg" className="bg-white text-primary hover:bg-gray-100 text-lg px-10 py-6 shadow-2xl font-bold">
+                Забронировать занятие
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Разнообразие стилей и уровней</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Независимо от вашего опыта и предпочтений, у нас найдется подходящее направление
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <Card className="border-2 hover:border-primary transition-all hover:shadow-xl text-center">
+              <CardContent className="pt-8 pb-8">
+                <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Icon name="Smile" size={40} className="text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3">Начинающие</h3>
+                <p className="text-muted-foreground">
+                  Никогда не танцевали? Отлично! Начнем с основ и постепенно освоим все техники.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 hover:border-primary transition-all hover:shadow-xl text-center">
+              <CardContent className="pt-8 pb-8">
+                <div className="w-20 h-20 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Icon name="Zap" size={40} className="text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3">Средний уровень</h3>
+                <p className="text-muted-foreground">
+                  Есть базовый опыт? Развивайте технику и изучайте сложные комбинации.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 hover:border-primary transition-all hover:shadow-xl text-center">
+              <CardContent className="pt-8 pb-8">
+                <div className="w-20 h-20 bg-gradient-to-br from-red-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Icon name="Trophy" size={40} className="text-white" />
+                </div>
+                <h3 className="text-2xl font-bold mb-3">Продвинутые</h3>
+                <p className="text-muted-foreground">
+                  Готовы к вызовам? Профессиональная хореография и подготовка к конкурсам.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
