@@ -1,83 +1,93 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 
 const Pricing = () => {
   const pricingPlans = [
     {
-      title: 'Разовое занятие',
-      price: '500',
-      period: 'занятие',
+      name: 'Пробное',
+      price: '0',
+      period: 'одно занятие',
+      description: 'Идеально для знакомства с нашей школой',
       features: [
-        'Доступ к одному занятию',
-        'Любое направление',
-        'Без ограничений по времени',
-        'Идеально для пробы',
+        'Одно занятие любого направления',
+        'Консультация преподавателя',
+        'Доступ ко всем залам',
+        'Скидка 20% на первый абонемент',
       ],
-      icon: 'Ticket',
+      color: 'from-green-500 to-emerald-500',
       popular: false,
     },
     {
-      title: 'Абонемент 8 занятий',
-      price: '3200',
-      period: 'месяц',
+      name: 'Базовый',
+      price: '4 500',
+      period: '4 занятия',
+      description: 'Для начинающих танцоров',
+      features: [
+        '4 занятия в месяц',
+        'Любые направления',
+        'Действует 30 дней',
+        'Заморозка абонемента 7 дней',
+      ],
+      color: 'from-blue-500 to-cyan-500',
+      popular: false,
+    },
+    {
+      name: 'Стандарт',
+      price: '7 200',
+      period: '8 занятий',
+      description: 'Оптимальный выбор для прогресса',
       features: [
         '8 занятий в месяц',
-        'Любые направления',
-        'Экономия 20%',
-        'Можно заморозить на 2 недели',
-        'Срок действия: 30 дней',
+        'Все направления без ограничений',
+        'Действует 45 дней',
+        'Заморозка абонемента 14 дней',
+        'Скидка 10% на мерч',
       ],
-      icon: 'Calendar',
+      color: 'from-primary to-secondary',
       popular: true,
     },
     {
-      title: 'Безлимит',
-      price: '5500',
-      period: 'месяц',
+      name: 'Безлимит',
+      price: '12 900',
+      period: 'неограниченно',
+      description: 'Для тех, кто живет танцами',
       features: [
-        'Неограниченное количество занятий',
-        'Все направления',
-        'Максимальная выгода',
+        'Безлимитное посещение всех занятий',
+        'Действует 30 дней',
         'Приоритетная запись',
-        'Бесплатная заморозка',
-        'Скидка 10% на мастер-классы',
+        'Заморозка абонемента 21 день',
+        'Бесплатные мастер-классы',
+        'Скидка 20% на мерч',
       ],
-      icon: 'Infinity',
+      color: 'from-purple-500 to-pink-500',
       popular: false,
     },
   ];
 
   const promotions = [
     {
-      title: 'Пробное занятие',
-      discount: '50%',
-      description: 'Первое занятие со скидкой для новых учеников',
-      validUntil: 'Постоянная акция',
       icon: 'Gift',
-    },
-    {
       title: 'Приведи друга',
-      discount: '1 занятие',
-      description: 'Получите бесплатное занятие за каждого приведенного друга',
-      validUntil: 'Бессрочно',
-      icon: 'Users',
+      description: 'Получите скидку 15% на следующий абонемент за каждого приведенного друга',
     },
     {
-      title: 'Семейная скидка',
-      discount: '15%',
-      description: 'Скидка при покупке 2+ абонементов для членов одной семьи',
-      validUntil: 'Постоянная акция',
-      icon: 'Heart',
-    },
-    {
-      title: 'Студенческая скидка',
-      discount: '10%',
-      description: 'Скидка для студентов по предъявлению студенческого',
-      validUntil: 'Постоянная акция',
       icon: 'GraduationCap',
+      title: 'Скидка студентам',
+      description: 'Студентам очной формы обучения — скидка 10% на все абонементы',
+    },
+    {
+      icon: 'Users',
+      title: 'Семейный тариф',
+      description: 'При покупке 2+ абонементов членам одной семьи — скидка 15% на каждый',
+    },
+    {
+      icon: 'Star',
+      title: 'Бонусная программа',
+      description: 'Накапливайте баллы за каждое занятие и обменивайте на абонементы',
     },
   ];
 
@@ -85,55 +95,60 @@ const Pricing = () => {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      <section className="pt-32 pb-16 bg-gradient-to-b from-accent/10 to-white">
+      <section className="bg-gradient-to-br from-primary via-secondary to-accent py-20 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-6">Цены и акции</h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Выбирайте удобный формат занятий. Чем больше абонемент, тем выгоднее цена!
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-6">Цены и акции</h1>
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto">
+            Гибкие тарифы и специальные предложения для каждого
           </p>
         </div>
       </section>
 
-      <section className="py-16">
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {pricingPlans.map((plan, index) => (
               <Card
                 key={index}
-                className={`relative overflow-hidden hover:shadow-2xl transition-all ${
-                  plan.popular ? 'border-primary border-2 scale-105' : ''
+                className={`relative border-2 transition-all hover:shadow-2xl ${
+                  plan.popular ? 'border-primary scale-105' : 'hover:border-primary'
                 }`}
               >
                 {plan.popular && (
-                  <div className="absolute top-0 right-0 bg-primary text-white px-4 py-1 text-sm font-bold">
+                  <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-secondary text-white">
                     Популярный
-                  </div>
+                  </Badge>
                 )}
-                
-                <CardHeader className="text-center pb-8">
-                  <div className="flex justify-center mb-4">
-                    <div className={`p-4 rounded-full ${plan.popular ? 'bg-primary/20' : 'bg-muted'}`}>
-                      <Icon name={plan.icon} size={40} className={plan.popular ? 'text-primary' : 'text-foreground'} />
-                    </div>
+                <CardHeader>
+                  <div className={`w-16 h-16 bg-gradient-to-br ${plan.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
+                    <Icon name="Ticket" className="text-white" size={32} />
                   </div>
-                  <CardTitle className="text-2xl mb-2">{plan.title}</CardTitle>
-                  <div className="mt-4">
-                    <span className="text-5xl font-bold">{plan.price}</span>
-                    <span className="text-muted-foreground"> ₽</span>
-                    <p className="text-muted-foreground mt-1">/ {plan.period}</p>
+                  <CardTitle className="text-2xl text-center">{plan.name}</CardTitle>
+                  <div className="text-center mt-4">
+                    <span className="text-4xl font-bold">{plan.price}</span>
+                    <span className="text-xl ml-1">₽</span>
+                    <p className="text-muted-foreground mt-1">{plan.period}</p>
                   </div>
+                  <p className="text-center text-muted-foreground text-sm mt-2">{plan.description}</p>
                 </CardHeader>
-
-                <CardContent className="space-y-3 pb-8">
-                  {plan.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-2">
-                      <Icon name="Check" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                      <span className="text-sm">{feature}</span>
-                    </div>
-                  ))}
-
-                  <Button className={`w-full mt-6 ${plan.popular ? 'bg-primary' : ''}`} size="lg">
-                    Выбрать тариф
+                <CardContent>
+                  <ul className="space-y-3 mb-6">
+                    {plan.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start">
+                        <Icon name="CheckCircle2" className="text-primary mr-2 flex-shrink-0 mt-0.5" size={18} />
+                        <span className="text-sm">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <Button
+                    className={`w-full ${
+                      plan.popular
+                        ? 'bg-gradient-to-r from-primary to-secondary hover:opacity-90'
+                        : ''
+                    }`}
+                    variant={plan.popular ? 'default' : 'outline'}
+                  >
+                    Выбрать
                   </Button>
                 </CardContent>
               </Card>
@@ -142,37 +157,28 @@ const Pricing = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-gradient-to-b from-white to-muted">
+      <section className="py-20 bg-gradient-to-br from-accent/20 to-primary/10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Акции и скидки</h2>
-            <p className="text-lg text-muted-foreground">
-              Дополнительные возможности сэкономить на занятиях
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Акции и специальные предложения</h2>
+            <p className="text-xl text-muted-foreground">
+              Больше возможностей танцевать и экономить
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {promotions.map((promo, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all">
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 bg-primary/10 rounded-full flex-shrink-0">
-                      <Icon name={promo.icon} size={28} className="text-primary" />
+              <Card key={index} className="border-2 hover:border-primary transition-all hover:shadow-lg">
+                <CardHeader>
+                  <div className="flex items-center space-x-4">
+                    <div className="w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                      <Icon name={promo.icon} className="text-white" size={28} />
                     </div>
-                    
-                    <div className="flex-1">
-                      <div className="flex items-start justify-between mb-2">
-                        <h3 className="text-xl font-bold">{promo.title}</h3>
-                        <span className="bg-accent text-accent-foreground px-3 py-1 rounded-full text-sm font-bold">
-                          {promo.discount}
-                        </span>
-                      </div>
-                      <p className="text-muted-foreground mb-2">{promo.description}</p>
-                      <p className="text-xs text-primary font-semibold">
-                        Действует: {promo.validUntil}
-                      </p>
-                    </div>
+                    <CardTitle className="text-xl">{promo.title}</CardTitle>
                   </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">{promo.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -180,59 +186,57 @@ const Pricing = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-muted">
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-8 text-center">Дополнительные услуги</h2>
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <Icon name="UserPlus" size={24} className="text-primary" />
-                    <h3 className="text-xl font-bold">Индивидуальные занятия</h3>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Дополнительные услуги</h2>
+            <div className="space-y-6">
+              <Card className="border-2">
+                <CardHeader>
+                  <CardTitle className="flex items-center">
+                    <Icon name="User" className="mr-2 text-primary" size={24} />
+                    Индивидуальные занятия
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex justify-between items-center">
+                    <p className="text-muted-foreground">Персональная тренировка с преподавателем</p>
+                    <span className="text-2xl font-bold">2 500 ₽</span>
                   </div>
-                  <p className="text-muted-foreground mb-2">
-                    Персональные тренировки с преподавателем
-                  </p>
-                  <p className="text-2xl font-bold">1500 ₽ <span className="text-base font-normal text-muted-foreground">/ час</span></p>
                 </CardContent>
               </Card>
 
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <Icon name="Award" size={24} className="text-primary" />
-                    <h3 className="text-xl font-bold">Мастер-классы</h3>
+              <Card className="border-2">
+                <CardHeader>
+                  <CardTitle className="flex items-center">
+                    <Icon name="Users" className="mr-2 text-primary" size={24} />
+                    Постановка танца
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex justify-between items-center">
+                    <p className="text-muted-foreground">Хореография для мероприятий (свадьба, корпоратив)</p>
+                    <span className="text-2xl font-bold">от 15 000 ₽</span>
                   </div>
-                  <p className="text-muted-foreground mb-2">
-                    Специальные занятия от приглашенных хореографов
-                  </p>
-                  <p className="text-2xl font-bold">800 ₽ <span className="text-base font-normal text-muted-foreground">/ занятие</span></p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2">
+                <CardHeader>
+                  <CardTitle className="flex items-center">
+                    <Icon name="Video" className="mr-2 text-primary" size={24} />
+                    Видеосъемка
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex justify-between items-center">
+                    <p className="text-muted-foreground">Профессиональная съемка вашего танца</p>
+                    <span className="text-2xl font-bold">3 000 ₽</span>
+                  </div>
                 </CardContent>
               </Card>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section
-        className="py-20 text-white"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,20,90,0.9), rgba(138,27,163,0.9)), url('https://cdn.poehali.dev/projects/7d32826a-7447-47db-a8d1-4f6ae4afd4b4/files/f12674f1-201a-45d4-a686-f4ff95fd8741.jpg')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
-        }}
-      >
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">Готовы начать танцевать?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Запишитесь на пробное занятие со скидкой 50% прямо сейчас!
-          </p>
-          <Button size="lg" className="text-lg px-10 py-6 bg-white text-primary hover:bg-white/90">
-            Записаться на пробное занятие
-          </Button>
         </div>
       </section>
 

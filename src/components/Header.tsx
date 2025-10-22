@@ -1,81 +1,81 @@
-import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import { useState } from 'react';
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navLinks = [
-    { to: '/', label: 'Главная' },
-    { to: '/styles', label: 'Направления' },
-    { to: '/schedule', label: 'Расписание' },
-    { to: '/pricing', label: 'Цены' },
-    { to: '/contacts', label: 'Контакты' },
+  const navItems = [
+    { name: 'Главная', path: '/' },
+    { name: 'Направления', path: '/directions' },
+    { name: 'Расписание', path: '/schedule' },
+    { name: 'Цены', path: '/pricing' },
+    { name: 'Контакты', path: '/contacts' },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
-
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
-              <Icon name="Music" className="text-white" size={24} />
-            </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              DanceFlow
-            </span>
-          </Link>
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-16 items-center justify-between">
+        <Link to="/" className="flex items-center space-x-2">
+          <Icon name="Music" className="h-6 w-6 text-primary" />
+          <span className="text-xl font-bold text-primary">DanceFlow</span>
+        </Link>
 
-          <nav className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`font-semibold transition-colors hover:text-primary ${
-                  isActive(link.to) ? 'text-primary' : 'text-foreground'
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Button size="lg" className="bg-gradient-to-r from-primary to-secondary hover:opacity-90">
-              Записаться
-            </Button>
-          </nav>
+        <nav className="hidden md:flex items-center space-x-6">
+          {navItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`text-sm font-medium transition-colors hover:text-primary ${
+                location.pathname === item.path
+                  ? 'text-primary'
+                  : 'text-foreground/60'
+              }`}
+            >
+              {item.name}
+            </Link>
+          ))}
+        </nav>
 
+        <div className="flex items-center space-x-4">
+          <Button className="hidden md:inline-flex">
+            Записаться на пробное занятие
+          </Button>
+          
           <button
             className="md:hidden"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
           >
-            <Icon name={isMenuOpen ? 'X' : 'Menu'} size={28} />
+            <Icon name={isMenuOpen ? "X" : "Menu"} className="h-6 w-6" />
           </button>
         </div>
+      </div>
 
-        {isMenuOpen && (
-          <nav className="md:hidden pb-4 animate-slide-up">
-            {navLinks.map((link) => (
+      {isMenuOpen && (
+        <div className="md:hidden border-t bg-background">
+          <nav className="container flex flex-col space-y-4 py-4">
+            {navItems.map((item) => (
               <Link
-                key={link.to}
-                to={link.to}
-                className={`block py-3 font-semibold transition-colors hover:text-primary ${
-                  isActive(link.to) ? 'text-primary' : 'text-foreground'
+                key={item.path}
+                to={item.path}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  location.pathname === item.path
+                    ? 'text-primary'
+                    : 'text-foreground/60'
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                {link.label}
+                {item.name}
               </Link>
             ))}
-            <Button size="lg" className="w-full mt-4 bg-gradient-to-r from-primary to-secondary hover:opacity-90">
-              Записаться
+            <Button className="w-full">
+              Записаться на пробное занятие
             </Button>
           </nav>
-        )}
-      </div>
+        </div>
+      )}
     </header>
   );
 };
