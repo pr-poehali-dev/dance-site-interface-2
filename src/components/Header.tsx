@@ -9,14 +9,14 @@ const Header = () => {
 
   const navItems = [
     { name: 'Главная', path: '/' },
-    { name: 'Направления', path: '/directions' },
+    { name: 'Танцевальные направления', path: '/directions' },
     { name: 'Расписание', path: '/schedule' },
-    { name: 'Цены', path: '/pricing' },
+    { name: 'Цены и акции', path: '/pricing' },
     { name: 'Контакты', path: '/contacts' },
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/90 shadow-md">
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center space-x-2">
           <Icon name="Music" className="h-6 w-6 text-primary" />
