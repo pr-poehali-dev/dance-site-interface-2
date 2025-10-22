@@ -100,20 +100,25 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      <section className="relative bg-gradient-to-br from-primary via-secondary to-accent py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
+      <section className="relative py-32 overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: 'url(https://cdn.poehali.dev/projects/7d32826a-7447-47db-a8d1-4f6ae4afd4b4/files/3ea578d4-fb53-4261-8dbe-98d407d0346c.jpg)' }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-secondary/80 to-accent/90"></div>
+        </div>
         <div className="container mx-auto px-4 relative z-10 text-white text-center">
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 animate-fade-in">
+          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 animate-fade-in drop-shadow-lg">
             Танцуй Свою Жизнь!
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-slide-up">
+          <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-slide-up drop-shadow">
             Раскройте свой потенциал в современной школе танцев с 15+ направлениями для всех уровней
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in">
-            <Button size="lg" className="bg-white text-primary hover:bg-gray-100 text-lg px-8 py-6">
+            <Button size="lg" className="bg-white text-primary hover:bg-gray-100 text-lg px-8 py-6 shadow-xl">
               Записаться на пробное
             </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-6">
+            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary text-lg px-8 py-6 shadow-xl">
               Смотреть направления
             </Button>
           </div>
